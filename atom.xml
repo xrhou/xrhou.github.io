@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xrhou.github.io/"/>
-  <updated>2017-07-17T08:06:33.000Z</updated>
+  <updated>2017-07-17T08:19:35.000Z</updated>
   <id>http://xrhou.github.io/</id>
   
   <author>
@@ -14,6 +14,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spring Boot中文乱码解决</title>
+    <link href="http://xrhou.github.io/2017/07/17/Spring-Boot%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3/"/>
+    <id>http://xrhou.github.io/2017/07/17/Spring-Boot中文乱码解决/</id>
+    <published>2017-07-17T08:14:56.000Z</published>
+    <updated>2017-07-17T08:19:35.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用SpringBoot开发，对外开放接口供调用，传入参数中有中文，出现中文乱码，废话少说，直接上代码。<br><a id="more"></a><br>解决乱码方法如下：</p>
+<h4 id="第一步-约定传参编码格式"><a href="#第一步-约定传参编码格式" class="headerlink" title="第一步,约定传参编码格式"></a>第一步,约定传参编码格式</h4><p>不管是使用httpclient，还是okhttp，都要设置传参的编码，为了统一，这里全部设置为utf-8</p>
+<h4 id="第二步，修改application-properties文件"><a href="#第二步，修改application-properties文件" class="headerlink" title="第二步，修改application.properties文件"></a>第二步，修改application.properties文件</h4><p>增加如下配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">spring.http.encoding.force=true</div><div class="line"></div><div class="line">spring.http.encoding.charset=UTF-8</div><div class="line"></div><div class="line">spring.http.encoding.enabled=true</div><div class="line"></div><div class="line">server.tomcat.uri-encoding=UTF-8</div></pre></td></tr></table></figure></p>
+<p>此时拦截器中返回的中文已经不乱码了，但是controller中返回的数据依旧乱码。</p>
+<h4 id="第三步，修改controller的-RequestMapping"><a href="#第三步，修改controller的-RequestMapping" class="headerlink" title="第三步，修改controller的@RequestMapping"></a>第三步，修改controller的@RequestMapping</h4><p>修改如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">produces=<span class="string">"text/plain;charset=UTF-8"</span></div></pre></td></tr></table></figure></p>
+<p>这种方法的弊端是限定了数据类型，继续查找资料，在stackoverflow上发现解决办法，是在配置类中增加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">@Configuration</div><div class="line">public class CustomMVCConfiguration extends WebMvcConfigurerAdapter &#123;</div><div class="line"></div><div class="line">    @Bean</div><div class="line">    public HttpMessageConverter&lt;String&gt; responseBodyConverter() &#123;</div><div class="line">        StringHttpMessageConverter converter = new StringHttpMessageConverter(Charset.forName(&quot;UTF-8&quot;));</div><div class="line">        return converter;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void configureMessageConverters(List&lt;HttpMessageConverter&lt;?&gt;&gt; converters) &#123;</div><div class="line">        super.configureMessageConverters(converters);</div><div class="line">        converters.add(responseBodyConverter());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void configureContentNegotiation(</div><div class="line">            ContentNegotiationConfigurer configurer) &#123;</div><div class="line">        configurer.favorPathExtension(false);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如此以上步骤走完可以解决SpringBoot的中文乱码问题了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;使用SpringBoot开发，对外开放接口供调用，传入参数中有中文，出现中文乱码，废话少说，直接上代码。&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>iBATIS结果映射</title>

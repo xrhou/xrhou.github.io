@@ -3,14 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>土豆丝不加辣</title>
+  <title>Spring Boot中文乱码解决 | 土豆丝不加辣</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="土豆丝不加辣">
-<meta property="og:url" content="http://xrhou.github.io/index.html">
+  <meta name="description" content="使用SpringBoot开发，对外开放接口供调用，传入参数中有中文，出现中文乱码，废话少说，直接上代码。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Boot中文乱码解决">
+<meta property="og:url" content="http://xrhou.github.io/2017/07/17/Spring-Boot中文乱码解决/index.html">
 <meta property="og:site_name" content="土豆丝不加辣">
+<meta property="og:description" content="使用SpringBoot开发，对外开放接口供调用，传入参数中有中文，出现中文乱码，废话少说，直接上代码。">
+<meta property="og:updated_time" content="2017-07-17T08:19:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="土豆丝不加辣">
+<meta name="twitter:title" content="Spring Boot中文乱码解决">
+<meta name="twitter:description" content="使用SpringBoot开发，对外开放接口供调用，传入参数中有中文，出现中文乱码，废话少说，直接上代码。">
   
     <link rel="alternate" href="/atom.xml" title="土豆丝不加辣" type="application/atom+xml">
   
@@ -67,9 +71,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-Spring-Boot中文乱码解决" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Spring-Boot中文乱码解决" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/07/17/Spring-Boot中文乱码解决/" class="article-date">
   <time datetime="2017-07-17T08:14:56.000Z" itemprop="datePublished">2017-07-17</time>
@@ -82,8 +84,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/17/Spring-Boot中文乱码解决/">Spring Boot中文乱码解决</a>
+    <h1 class="article-title" itemprop="name">
+      Spring Boot中文乱码解决
     </h1>
   
 
@@ -91,12 +93,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>使用SpringBoot开发，对外开放接口供调用，传入参数中有中文，出现中文乱码，废话少说，直接上代码。<br>
-        
-          <p class="article-more-link">
-            <a href="/2017/07/17/Spring-Boot中文乱码解决/#more">Read More</a>
-          </p>
-        
+        <p>使用SpringBoot开发，对外开放接口供调用，传入参数中有中文，出现中文乱码，废话少说，直接上代码。<br><a id="more"></a><br>解决乱码方法如下：</p>
+<h4 id="第一步-约定传参编码格式"><a href="#第一步-约定传参编码格式" class="headerlink" title="第一步,约定传参编码格式"></a>第一步,约定传参编码格式</h4><p>不管是使用httpclient，还是okhttp，都要设置传参的编码，为了统一，这里全部设置为utf-8</p>
+<h4 id="第二步，修改application-properties文件"><a href="#第二步，修改application-properties文件" class="headerlink" title="第二步，修改application.properties文件"></a>第二步，修改application.properties文件</h4><p>增加如下配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">spring.http.encoding.force=true</div><div class="line"></div><div class="line">spring.http.encoding.charset=UTF-8</div><div class="line"></div><div class="line">spring.http.encoding.enabled=true</div><div class="line"></div><div class="line">server.tomcat.uri-encoding=UTF-8</div></pre></td></tr></table></figure></p>
+<p>此时拦截器中返回的中文已经不乱码了，但是controller中返回的数据依旧乱码。</p>
+<h4 id="第三步，修改controller的-RequestMapping"><a href="#第三步，修改controller的-RequestMapping" class="headerlink" title="第三步，修改controller的@RequestMapping"></a>第三步，修改controller的@RequestMapping</h4><p>修改如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">produces=<span class="string">"text/plain;charset=UTF-8"</span></div></pre></td></tr></table></figure></p>
+<p>这种方法的弊端是限定了数据类型，继续查找资料，在stackoverflow上发现解决办法，是在配置类中增加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">@Configuration</div><div class="line">public class CustomMVCConfiguration extends WebMvcConfigurerAdapter &#123;</div><div class="line"></div><div class="line">    @Bean</div><div class="line">    public HttpMessageConverter&lt;String&gt; responseBodyConverter() &#123;</div><div class="line">        StringHttpMessageConverter converter = new StringHttpMessageConverter(Charset.forName(&quot;UTF-8&quot;));</div><div class="line">        return converter;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void configureMessageConverters(List&lt;HttpMessageConverter&lt;?&gt;&gt; converters) &#123;</div><div class="line">        super.configureMessageConverters(converters);</div><div class="line">        converters.add(responseBodyConverter());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void configureContentNegotiation(</div><div class="line">            ContentNegotiationConfigurer configurer) &#123;</div><div class="line">        configurer.favorPathExtension(false);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如此以上步骤走完可以解决SpringBoot的中文乱码问题了。</p>
+
       
     </div>
     <footer class="article-footer">
@@ -108,101 +113,26 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-iBATIS结果映射" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/07/17/iBATIS结果映射/" class="article-date">
-  <time datetime="2017-07-17T06:01:02.000Z" itemprop="datePublished">2017-07-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/17/iBATIS结果映射/">iBATIS结果映射</a>
-    </h1>
+    <a href="/2017/07/17/iBATIS结果映射/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">iBATIS结果映射</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>以前使用的是hibernate的关系映射，换工作后新单位用dubbo框架，整个业务经常要使用ibatis结果集。进而针对ibatis的使用做个总结，好记心不如烂笔头，对自己的理解做个总结。</p>
-</blockquote>
-        
-          <p class="article-more-link">
-            <a href="/2017/07/17/iBATIS结果映射/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://xrhou.github.io/2017/07/17/iBATIS结果映射/" data-id="cj57vrjjd00049w604oelkqhc" class="article-share-link">Partager</a>
-      
-        <a href="http://xrhou.github.io/2017/07/17/iBATIS结果映射/#disqus_thread" class="article-comment-link">Commentaires</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ibatis/">ibatis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
 
 
-  
-    <article id="post-我的hexo-blog" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/07/16/我的hexo-blog/" class="article-date">
-  <time datetime="2017-07-16T07:35:12.000Z" itemprop="datePublished">2017-07-16</time>
-</a>
-    
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/16/我的hexo-blog/">hexo-blog部署</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>周末，两天没出门，除了下楼拿外卖，昨天研究了下layui前段框架。看到很多个人的blog在hexo的驱动下部署的个人blog,心血来潮，自己也弄了一个。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://xrhou.github.io/2017/07/16/我的hexo-blog/" data-id="cj57vrjjg00069w60ekqhpn5u" class="article-share-link">Partager</a>
-      
-        <a href="http://xrhou.github.io/2017/07/16/我的hexo-blog/#disqus_thread" class="article-comment-link">Commentaires</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-
-  <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
-  </nav>
+</section>
 </section>
         
           <aside id="sidebar">
@@ -308,11 +238,13 @@
 <script>
   var disqus_shortname = 'houxiurong';
   
+  var disqus_url = 'http://xrhou.github.io/2017/07/17/Spring-Boot中文乱码解决/';
+  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>
