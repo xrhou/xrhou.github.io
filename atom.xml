@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xrhou.github.io/"/>
-  <updated>2017-07-16T14:10:27.000Z</updated>
+  <updated>2017-07-17T07:31:39.000Z</updated>
   <id>http://xrhou.github.io/</id>
   
   <author>
@@ -14,6 +14,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iBATIS结果映射</title>
+    <link href="http://xrhou.github.io/2017/07/17/iBATIS%E7%BB%93%E6%9E%9C%E6%98%A0%E5%B0%84/"/>
+    <id>http://xrhou.github.io/2017/07/17/iBATIS结果映射/</id>
+    <published>2017-07-17T06:01:02.000Z</published>
+    <updated>2017-07-17T07:31:39.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>以前使用的是hibernate的关系映射，换工作后新单位用dubbo框架，整个业务经常要使用ibatis结果集。进而针对ibatis的使用做个总结，好记心不如烂笔头，对自己的理解做个总结。</p>
+</blockquote>
+<a id="more"></a>
+<p>resultMap的元素是在iBATIS的最重要和最强大的元素。您可以通过使用iBATIS的结果映射减少高达90％的JDBC编码，在某些情况下，可以让你做JDBC不支持的事情。<br>ResultMaps的设计是这样的简单语句不需要明确的结果映射，以及更复杂的报表要求不超过绝对必要说明的关系。<br>本章将只给你一个简单的介绍iBATIS的结果映射。</p>
+<p>我们已经在MySQL下有EMPLOYEE表：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE EMPLOYEE (</div><div class="line">	id INT NOT NULL auto_increment,</div><div class="line">	first_name VARCHAR(20) default NULL,</div><div class="line">	last_name  VARCHAR(20) default NULL,</div><div class="line">	salary  INT  default NULL,</div><div class="line">	PRIMARY KEY (id)</div><div class="line">);</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;以前使用的是hibernate的关系映射，换工作后新单位用dubbo框架，整个业务经常要使用ibatis结果集。进而针对ibatis的使用做个总结，好记心不如烂笔头，对自己的理解做个总结。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="ibatis" scheme="http://xrhou.github.io/tags/ibatis/"/>
+    
+      <category term="java" scheme="http://xrhou.github.io/tags/java/"/>
+    
+  </entry>
   
   <entry>
     <title>hexo-blog部署</title>
@@ -40,9 +70,10 @@
     <link href="http://xrhou.github.io/2017/07/16/hello-world/"/>
     <id>http://xrhou.github.io/2017/07/16/hello-world/</id>
     <published>2017-07-16T06:00:17.000Z</published>
-    <updated>2017-07-16T06:00:17.000Z</updated>
+    <updated>2017-07-17T07:32:30.000Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<a id="more"></a>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
@@ -55,7 +86,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
     
     </summary>
     
