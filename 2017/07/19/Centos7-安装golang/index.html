@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>hexo-blog部署 | 土豆丝不加辣</title>
+  <title>Centos7 安装golang | 土豆丝不加辣</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="周末，两天没出门，除了下楼拿外卖，昨天研究了下layui前段框架。看到很多个人的blog在hexo的驱动下部署的个人blog,心血来潮，自己也弄了一个。">
+  <meta name="description" content="[go语言安装]Centos7-安装golang">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo-blog部署">
-<meta property="og:url" content="http://xrhou.github.io/2017/07/16/我的hexo-blog/index.html">
+<meta property="og:title" content="Centos7 安装golang">
+<meta property="og:url" content="http://xrhou.github.io/2017/07/19/Centos7-安装golang/index.html">
 <meta property="og:site_name" content="土豆丝不加辣">
-<meta property="og:description" content="周末，两天没出门，除了下楼拿外卖，昨天研究了下layui前段框架。看到很多个人的blog在hexo的驱动下部署的个人blog,心血来潮，自己也弄了一个。">
-<meta property="og:updated_time" content="2017-07-16T14:10:27.000Z">
+<meta property="og:description" content="[go语言安装]Centos7-安装golang">
+<meta property="og:updated_time" content="2017-07-19T06:10:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo-blog部署">
-<meta name="twitter:description" content="周末，两天没出门，除了下楼拿外卖，昨天研究了下layui前段框架。看到很多个人的blog在hexo的驱动下部署的个人blog,心血来潮，自己也弄了一个。">
+<meta name="twitter:title" content="Centos7 安装golang">
+<meta name="twitter:description" content="[go语言安装]Centos7-安装golang">
   
     <link rel="alternate" href="/atom.xml" title="土豆丝不加辣" type="application/atom+xml">
   
@@ -71,10 +71,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-我的hexo-blog" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Centos7-安装golang" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/07/16/我的hexo-blog/" class="article-date">
-  <time datetime="2017-07-16T07:35:12.000Z" itemprop="datePublished">2017-07-16</time>
+    <a href="/2017/07/19/Centos7-安装golang/" class="article-date">
+  <time datetime="2017-07-19T06:02:55.000Z" itemprop="datePublished">2017-07-19</time>
 </a>
     
   </div>
@@ -85,7 +85,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      hexo-blog部署
+      Centos7 安装golang
     </h1>
   
 
@@ -93,14 +93,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>周末，两天没出门，除了下楼拿外卖，昨天研究了下layui前段框架。看到很多个人的blog在hexo的驱动下部署的个人blog,心血来潮，自己也弄了一个。</p>
+        <p>[go语言安装]Centos7-安装golang<br><a id="more"></a><br>使用二进制文件安装</p>
+<h3 id="1、下载二进制文件："><a href="#1、下载二进制文件：" class="headerlink" title="1、下载二进制文件："></a>1、下载二进制文件：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ wget http://www.golangtc.com/static/go/1.6.2/go1.6.2.linux-amd64.tar.gz</div></pre></td></tr></table></figure>
+<h3 id="2、解压并创建工作目录："><a href="#2、解压并创建工作目录：" class="headerlink" title="2、解压并创建工作目录："></a>2、解压并创建工作目录：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ tar -zxf go1.6.2.linux-amd64.tar.gz -C /usr/<span class="built_in">local</span>/</div><div class="line"></div><div class="line">$ mkdir /Golang</div></pre></td></tr></table></figure>
+<h3 id="3、设置环境变量："><a href="#3、设置环境变量：" class="headerlink" title="3、设置环境变量："></a>3、设置环境变量：</h3><p>在 /etc/profile 添加：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> GOROOT=/usr/<span class="built_in">local</span>/go </div><div class="line"><span class="built_in">export</span> GOBIN=<span class="variable">$GOROOT</span>/bin</div><div class="line"><span class="built_in">export</span> GOPKG=<span class="variable">$GOROOT</span>/pkg/tool/linux_amd64 </div><div class="line"><span class="built_in">export</span> GOARCH=amd64</div><div class="line"><span class="built_in">export</span> GOOS=linux</div><div class="line"><span class="built_in">export</span> GOPATH=/Golang</div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$GOBIN</span>:<span class="variable">$GOPKG</span>:<span class="variable">$GOPATH</span>/bin</div></pre></td></tr></table></figure></p>
+<p>然后执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">source</span> /etc/profile</div></pre></td></tr></table></figure></p>
+<p>使之生效。</p>
+<h3 id="4-编写demo程序验证下："><a href="#4-编写demo程序验证下：" class="headerlink" title="4.编写demo程序验证下："></a>4.编写demo程序验证下：</h3><h4 id="1-编写demo程序："><a href="#1-编写demo程序：" class="headerlink" title="1.编写demo程序："></a>1.编写demo程序：</h4><h4 id="demo-go"><a href="#demo-go" class="headerlink" title="demo.go"></a>demo.go</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">package main</div><div class="line">import <span class="string">"fmt"</span></div><div class="line"></div><div class="line">func <span class="function"><span class="title">main</span></span>() &#123;</div><div class="line">    fmt.Printf(<span class="string">"Let's go\n"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="1-gt-编译运行："><a href="#1-gt-编译运行：" class="headerlink" title="1&gt;编译运行："></a>1&gt;编译运行：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ go run demo.go</div></pre></td></tr></table></figure>
+<p>运行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./demo</div></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://xrhou.github.io/2017/07/16/我的hexo-blog/" data-id="cj5alzop00005lm60ig7a375r" class="article-share-link">Share</a>
+      <a data-url="http://xrhou.github.io/2017/07/19/Centos7-安装golang/" data-id="cj5alzoow0003lm60r8annok9" class="article-share-link">Share</a>
       
-        <a href="http://xrhou.github.io/2017/07/16/我的hexo-blog/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://xrhou.github.io/2017/07/19/Centos7-安装golang/#disqus_thread" class="article-comment-link">Comments</a>
       
       
     </footer>
@@ -109,19 +117,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/07/17/iBATIS结果映射/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          iBATIS结果映射
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/07/16/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/07/19/长大后/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">Hello World</div>
+      <div class="article-nav-title">长大后...</div>
     </a>
   
 </nav>
@@ -244,7 +243,7 @@
 <script>
   var disqus_shortname = 'xrhou';
   
-  var disqus_url = 'http://xrhou.github.io/2017/07/16/我的hexo-blog/';
+  var disqus_url = 'http://xrhou.github.io/2017/07/19/Centos7-安装golang/';
   
   (function(){
     var dsq = document.createElement('script');
