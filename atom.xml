@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xrhou.github.io/"/>
-  <updated>2017-07-17T08:19:35.000Z</updated>
+  <updated>2017-07-17T08:53:34.000Z</updated>
   <id>http://xrhou.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://xrhou.github.io/2017/07/17/Spring-Boot%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3/"/>
     <id>http://xrhou.github.io/2017/07/17/Spring-Boot中文乱码解决/</id>
     <published>2017-07-17T08:14:56.000Z</published>
-    <updated>2017-07-17T08:19:35.000Z</updated>
+    <updated>2017-07-17T08:53:34.000Z</updated>
     
     <content type="html"><![CDATA[<p>使用SpringBoot开发，对外开放接口供调用，传入参数中有中文，出现中文乱码，废话少说，直接上代码。<br><a id="more"></a><br>解决乱码方法如下：</p>
 <h4 id="第一步-约定传参编码格式"><a href="#第一步-约定传参编码格式" class="headerlink" title="第一步,约定传参编码格式"></a>第一步,约定传参编码格式</h4><p>不管是使用httpclient，还是okhttp，都要设置传参的编码，为了统一，这里全部设置为utf-8</p>
@@ -46,7 +46,7 @@
     <link href="http://xrhou.github.io/2017/07/17/iBATIS%E7%BB%93%E6%9E%9C%E6%98%A0%E5%B0%84/"/>
     <id>http://xrhou.github.io/2017/07/17/iBATIS结果映射/</id>
     <published>2017-07-17T06:01:02.000Z</published>
-    <updated>2017-07-17T08:30:06.000Z</updated>
+    <updated>2017-07-17T08:53:13.000Z</updated>
     
     <content type="html"><![CDATA[<p>以前使用的是hibernate的关系映射，换工作后新单位用dubbo框架，整个业务经常要使用ibatis结果集。进而针对ibatis的使用做个总结，好记心不如烂笔头，对自己的理解做个总结。<br><a id="more"></a><br>resultMap的元素是在iBATIS的最重要和最强大的元素。您可以通过使用iBATIS的结果映射减少高达90％的JDBC编码，在某些情况下，可以让你做JDBC不支持的事情。<br>ResultMaps的设计是这样的简单语句不需要明确的结果映射，以及更复杂的报表要求不超过绝对必要说明的关系。<br>本章将只给你一个简单的介绍iBATIS的结果映射。</p>
 <h4 id="在MySQL中创建EMPLOYEE表："><a href="#在MySQL中创建EMPLOYEE表：" class="headerlink" title="在MySQL中创建EMPLOYEE表："></a>在MySQL中创建EMPLOYEE表：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE EMPLOYEE (</div><div class="line">	id INT NOT NULL auto_increment,</div><div class="line">	first_name VARCHAR(20) default NULL,</div><div class="line">	last_name  VARCHAR(20) default NULL,</div><div class="line">	salary  INT  default NULL,</div><div class="line">	PRIMARY KEY (id)</div><div class="line">);</div></pre></td></tr></table></figure>
