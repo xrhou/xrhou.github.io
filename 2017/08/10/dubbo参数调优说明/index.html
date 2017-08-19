@@ -3,14 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>土豆丝不加辣</title>
+  <title>dubbo参数调优说明 | 土豆丝不加辣</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="土豆丝不加辣">
-<meta property="og:url" content="http://xrhou.github.io/index.html">
+  <meta name="description" content="dubbo作为一个服务治理框架，功能相对比较完善，性能也挺不错。但很多朋友在使用dubbo的时候，只是简单的参考官方说明进行搭建，并没有过多的去思考一些关键参数的意义（也可能是时间紧任务多，没空出来研究），最终做出来的效果有一定的打折。 这里我根据目前我们项目的使用情况列出几个性能调优的参数及其意义，供大家参考。在介绍参数之前，我们先了解下dubbo中配置的优先级，以免出现调优参数设置了却没发现效">
+<meta property="og:type" content="article">
+<meta property="og:title" content="dubbo参数调优说明">
+<meta property="og:url" content="http://xrhou.github.io/2017/08/10/dubbo参数调优说明/index.html">
 <meta property="og:site_name" content="土豆丝不加辣">
+<meta property="og:description" content="dubbo作为一个服务治理框架，功能相对比较完善，性能也挺不错。但很多朋友在使用dubbo的时候，只是简单的参考官方说明进行搭建，并没有过多的去思考一些关键参数的意义（也可能是时间紧任务多，没空出来研究），最终做出来的效果有一定的打折。 这里我根据目前我们项目的使用情况列出几个性能调优的参数及其意义，供大家参考。在介绍参数之前，我们先了解下dubbo中配置的优先级，以免出现调优参数设置了却没发现效">
+<meta property="og:updated_time" content="2017-08-10T10:28:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="土豆丝不加辣">
+<meta name="twitter:title" content="dubbo参数调优说明">
+<meta name="twitter:description" content="dubbo作为一个服务治理框架，功能相对比较完善，性能也挺不错。但很多朋友在使用dubbo的时候，只是简单的参考官方说明进行搭建，并没有过多的去思考一些关键参数的意义（也可能是时间紧任务多，没空出来研究），最终做出来的效果有一定的打折。 这里我根据目前我们项目的使用情况列出几个性能调优的参数及其意义，供大家参考。在介绍参数之前，我们先了解下dubbo中配置的优先级，以免出现调优参数设置了却没发现效">
   
     <link rel="alternate" href="/atom.xml" title="土豆丝不加辣" type="application/atom+xml">
   
@@ -67,58 +71,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-mac-os-x-install-redis-3-2-9" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/08/19/mac-os-x-install-redis-3-2-9/" class="article-date">
-  <time datetime="2017-08-19T13:40:26.000Z" itemprop="datePublished">2017-08-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/19/mac-os-x-install-redis-3-2-9/">mac os x install redis-3.2.9</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <a id="more"></a>
-<p>###1.下载、解压、重命名并且编译安装Redis<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">~ wget http://download.redis.io/releases/redis-3.2.9.tar.gz </div><div class="line">~ tar xzf redis-3.2.9.tar.gz</div><div class="line">~ mv redis-3.2.9 redis</div><div class="line">~ <span class="built_in">cd</span> redis</div><div class="line">~ make</div><div class="line">~ make <span class="built_in">test</span></div><div class="line">~ make install</div></pre></td></tr></table></figure></p>
-<p>###2.配置文件redis.conf<br>redis解压目录里有一个配置文件redis.conf ，编辑此配置文件，找到 dir ./ 这一行[247行]。redis会将内存中的数据写入文件中，而此配置就是指定数据文件保存的路径。<br>我本机指定的目录：<br>dir ./<br>修改为<br>dir /Users/houxiurong/Software/redis_data/<br>编辑过后，将配置文件移动到 /usr/local/etc 目录下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~ sudo mv redis.conf /usr/<span class="built_in">local</span>/etc/</div></pre></td></tr></table></figure></p>
-<p>启动Redis<br>终端输入:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~ /usr/<span class="built_in">local</span>/bin/redis-server /usr/<span class="built_in">local</span>/etc/redis.conf</div></pre></td></tr></table></figure></p>
-<p>服务启动成功画面:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">houxiurong-MacBook-Pro:src houxiurong$ /usr/<span class="built_in">local</span>/bin/redis-server /usr/<span class="built_in">local</span>/etc/redis.conf </div><div class="line">6508:M 01 Jul 18:21:33.662 * Increased maximum number of open files to 10032 (it was originally <span class="built_in">set</span> to 256).</div><div class="line">_._ </div><div class="line">_.-``__ <span class="string">''</span>-._ </div><div class="line">_.-`` `. `_. <span class="string">''</span>-._ Redis 3.2.9 (00000000/0) 64 bit</div><div class="line">.-`` .-```. ```\/ _.,_ <span class="string">''</span>-._ </div><div class="line">( <span class="string">' , .-` | `, ) Running in standalone mode</span></div><div class="line">|`-._`-...-` __...-.``-._|'` _.-<span class="string">'| Port: 6379</span></div><div class="line">| `-._ `._ / _.-' | PID: 6508</div><div class="line">`-._ `-._ `-./ _.-<span class="string">' _.-'</span> </div><div class="line">|`-._`-._ `-.__.-<span class="string">' _.-'</span>_.-<span class="string">'| </span></div><div class="line">| `-._`-._ _.-'_.-<span class="string">' | http://redis.io </span></div><div class="line">`-._ `-._`-.__.-'_.-<span class="string">' _.-'</span> </div><div class="line">|`-._`-._ `-.__.-<span class="string">' _.-'</span>_.-<span class="string">'| </span></div><div class="line">| `-._`-._ _.-'_.-<span class="string">' | </span></div><div class="line">`-._ `-._`-.__.-'_.-<span class="string">' _.-'</span> </div><div class="line">`-._ `-.__.-<span class="string">' _.-'</span> </div><div class="line">`-._ _.-<span class="string">' </span></div><div class="line">`-.__.-'</div><div class="line"></div><div class="line">6508:M 01 Jul 18:21:33.664 <span class="comment"># Server started, Redis version 3.2.9</span></div><div class="line">6508:M 01 Jul 18:21:33.664 * DB loaded from disk: 0.000 seconds</div><div class="line">6508:M 01 Jul 18:21:33.664 * The server is now ready to accept connections on port 6379</div></pre></td></tr></table></figure></p>
-<p>###3.测试连通性<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">~ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/bin</div><div class="line">~ ./redis-cli</div><div class="line">127.0.0.1:6379&gt; <span class="built_in">set</span> me houxiurong</div><div class="line">OK</div><div class="line">127.0.0.1:6379&gt; get me</div><div class="line"><span class="string">"houxiurong"</span></div></pre></td></tr></table></figure></p>
-<p>###4.设置开机自动启动redis server<br>新建plist文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~ sudo vi /Library/LaunchDaemons/io.redis.redis-server.plist</div></pre></td></tr></table></figure></p>
-<p>文件内容如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</div><div class="line">&lt;!DOCTYPE plist PUBLIC <span class="string">"-//Apple Computer//DTD PLIST 1.0//EN"</span> <span class="string">"http://www.apple.com/DTDs/PropertyList-1.0.dtd"</span>&gt;</div><div class="line">&lt;plist version=<span class="string">"1.0"</span>&gt;</div><div class="line">&lt;dict&gt;</div><div class="line">&lt;key&gt;Label&lt;/key&gt;</div><div class="line">&lt;string&gt;io.redis.redis-server&lt;/string&gt;</div><div class="line">&lt;key&gt;ProgramArguments&lt;/key&gt;</div><div class="line">&lt;array&gt;</div><div class="line">&lt;string&gt;/usr/<span class="built_in">local</span>/bin/redis-server&lt;/string&gt;</div><div class="line">&lt;string&gt;/usr/<span class="built_in">local</span>/etc/redis.conf&lt;/string&gt;</div><div class="line">&lt;/array&gt;</div><div class="line">&lt;key&gt;RunAtLoad&lt;/key&gt;</div><div class="line">&lt;<span class="literal">true</span>/&gt;</div><div class="line">&lt;/dict&gt;</div><div class="line">&lt;/plist&gt;</div></pre></td></tr></table></figure></p>
-<p>###5.使用launchctl设置开机自动启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~ sudo launchctl load /Library/LaunchDaemons/io.redis.redis-server.plist</div></pre></td></tr></table></figure></p>
-<p>使用launchctl启动redis server<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~ sudo launchctl start io.redis.redis-server</div></pre></td></tr></table></figure></p>
-<p>使用launchctl停止redis server<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~ sudo launchctl stop io.redis.redis-server</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://xrhou.github.io/2017/08/19/mac-os-x-install-redis-3-2-9/" data-id="cj6jczaqm0007ox60tj86848y" class="article-share-link">Share</a>
-      
-        <a href="http://xrhou.github.io/2017/08/19/mac-os-x-install-redis-3-2-9/#disqus_thread" class="article-comment-link">Kommentarer</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-dubbo参数调优说明" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-dubbo参数调优说明" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/08/10/dubbo参数调优说明/" class="article-date">
   <time datetime="2017-08-10T09:59:09.000Z" itemprop="datePublished">2017-08-10</time>
@@ -131,8 +84,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/10/dubbo参数调优说明/">dubbo参数调优说明</a>
+    <h1 class="article-title" itemprop="name">
+      dubbo参数调优说明
     </h1>
   
 
@@ -169,60 +122,35 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-互联网创业公司黑话指南" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/07/23/互联网创业公司黑话指南/" class="article-date">
-  <time datetime="2017-07-23T14:45:48.000Z" itemprop="datePublished">2017-07-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <a href="/2017/08/19/mac-os-x-install-redis-3-2-9/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
         
+          mac os x install redis-3.2.9
+        
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/23/互联网创业公司黑话指南/">互联网创业公司黑话指南</a>
-    </h1>
   
+    <a href="/2017/07/23/互联网创业公司黑话指南/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">互联网创业公司黑话指南</div>
+    </a>
+  
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>整理了一下互联网创业公司常用的黑话，供大家参考，可以避免理解上的偏差。你肯定听过其中几款，却未必了解当时说话人的怨念……在阅读过程中，请保持严肃，不要哄堂大笑。<br>
-        
-          <p class="article-more-link">
-            <a href="/2017/07/23/互联网创业公司黑话指南/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://xrhou.github.io/2017/07/23/互联网创业公司黑话指南/" data-id="cj6jczaqn0009ox60art8ur18" class="article-share-link">Share</a>
-      
-        <a href="http://xrhou.github.io/2017/07/23/互联网创业公司黑话指南/#disqus_thread" class="article-comment-link">Kommentarer</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/心路历程/">心路历程</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
 
 
-  
-
-
-  <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
-  </nav>
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
 </section>
         
           <aside id="sidebar">
@@ -365,11 +293,13 @@
 <script>
   var disqus_shortname = 'xrhou';
   
+  var disqus_url = 'http://xrhou.github.io/2017/08/10/dubbo参数调优说明/';
+  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>
