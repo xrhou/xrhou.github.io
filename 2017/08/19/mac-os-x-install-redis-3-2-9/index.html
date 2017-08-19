@@ -5,16 +5,16 @@
   
   <title>mac os x install redis-3.2.9 | 土豆丝不加辣</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="###1.下载、解压、重命名并且编译安装Redis1234567~ wget http://download.redis.io/releases/redis-3.2.9.tar.gz ~ tar xzf redis-3.2.9.tar.gz~ mv redis-3.2.9 redis~ cd redis~ make~ make test~ make install ###2.配置文件redis.">
+  <meta name="description" content="1.下载、解压、重命名并且编译安装Redis1234567~ wget http://download.redis.io/releases/redis-3.2.9.tar.gz ~ tar xzf redis-3.2.9.tar.gz~ mv redis-3.2.9 redis~ cd redis~ make~ make test~ make install 2.配置文件redis.confre">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mac os x install redis-3.2.9">
 <meta property="og:url" content="http://xrhou.github.io/2017/08/19/mac-os-x-install-redis-3-2-9/index.html">
 <meta property="og:site_name" content="土豆丝不加辣">
-<meta property="og:description" content="###1.下载、解压、重命名并且编译安装Redis1234567~ wget http://download.redis.io/releases/redis-3.2.9.tar.gz ~ tar xzf redis-3.2.9.tar.gz~ mv redis-3.2.9 redis~ cd redis~ make~ make test~ make install ###2.配置文件redis.">
-<meta property="og:updated_time" content="2017-08-19T13:46:24.000Z">
+<meta property="og:description" content="1.下载、解压、重命名并且编译安装Redis1234567~ wget http://download.redis.io/releases/redis-3.2.9.tar.gz ~ tar xzf redis-3.2.9.tar.gz~ mv redis-3.2.9 redis~ cd redis~ make~ make test~ make install 2.配置文件redis.confre">
+<meta property="og:updated_time" content="2017-08-19T13:50:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mac os x install redis-3.2.9">
-<meta name="twitter:description" content="###1.下载、解压、重命名并且编译安装Redis1234567~ wget http://download.redis.io/releases/redis-3.2.9.tar.gz ~ tar xzf redis-3.2.9.tar.gz~ mv redis-3.2.9 redis~ cd redis~ make~ make test~ make install ###2.配置文件redis.">
+<meta name="twitter:description" content="1.下载、解压、重命名并且编译安装Redis1234567~ wget http://download.redis.io/releases/redis-3.2.9.tar.gz ~ tar xzf redis-3.2.9.tar.gz~ mv redis-3.2.9 redis~ cd redis~ make~ make test~ make install 2.配置文件redis.confre">
   
     <link rel="alternate" href="/atom.xml" title="土豆丝不加辣" type="application/atom+xml">
   
@@ -60,9 +60,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://xrhou.github.io"></form>
@@ -94,23 +94,23 @@
     <div class="article-entry" itemprop="articleBody">
       
         <a id="more"></a>
-<p>###1.下载、解压、重命名并且编译安装Redis<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">~ wget http://download.redis.io/releases/redis-3.2.9.tar.gz </div><div class="line">~ tar xzf redis-3.2.9.tar.gz</div><div class="line">~ mv redis-3.2.9 redis</div><div class="line">~ <span class="built_in">cd</span> redis</div><div class="line">~ make</div><div class="line">~ make <span class="built_in">test</span></div><div class="line">~ make install</div></pre></td></tr></table></figure></p>
-<p>###2.配置文件redis.conf<br>redis解压目录里有一个配置文件redis.conf ，编辑此配置文件，找到 dir ./ 这一行[247行]。redis会将内存中的数据写入文件中，而此配置就是指定数据文件保存的路径。<br>我本机指定的目录：<br>dir ./<br>修改为<br>dir /Users/houxiurong/Software/redis_data/<br>编辑过后，将配置文件移动到 /usr/local/etc 目录下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~ sudo mv redis.conf /usr/<span class="built_in">local</span>/etc/</div></pre></td></tr></table></figure></p>
+<h3 id="1-下载、解压、重命名并且编译安装Redis"><a href="#1-下载、解压、重命名并且编译安装Redis" class="headerlink" title="1.下载、解压、重命名并且编译安装Redis"></a>1.下载、解压、重命名并且编译安装Redis</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">~ wget http://download.redis.io/releases/redis-3.2.9.tar.gz </div><div class="line">~ tar xzf redis-3.2.9.tar.gz</div><div class="line">~ mv redis-3.2.9 redis</div><div class="line">~ <span class="built_in">cd</span> redis</div><div class="line">~ make</div><div class="line">~ make <span class="built_in">test</span></div><div class="line">~ make install</div></pre></td></tr></table></figure>
+<h3 id="2-配置文件redis-conf"><a href="#2-配置文件redis-conf" class="headerlink" title="2.配置文件redis.conf"></a>2.配置文件redis.conf</h3><p>redis解压目录里有一个配置文件redis.conf ，编辑此配置文件，找到 dir ./ 这一行[247行]。redis会将内存中的数据写入文件中，而此配置就是指定数据文件保存的路径。<br>我本机指定的目录：<br>dir ./<br>修改为<br>dir /Users/houxiurong/Software/redis_data/<br>编辑过后，将配置文件移动到 /usr/local/etc 目录下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~ sudo mv redis.conf /usr/<span class="built_in">local</span>/etc/</div></pre></td></tr></table></figure></p>
 <p>启动Redis<br>终端输入:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~ /usr/<span class="built_in">local</span>/bin/redis-server /usr/<span class="built_in">local</span>/etc/redis.conf</div></pre></td></tr></table></figure></p>
 <p>服务启动成功画面:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">houxiurong-MacBook-Pro:src houxiurong$ /usr/<span class="built_in">local</span>/bin/redis-server /usr/<span class="built_in">local</span>/etc/redis.conf </div><div class="line">6508:M 01 Jul 18:21:33.662 * Increased maximum number of open files to 10032 (it was originally <span class="built_in">set</span> to 256).</div><div class="line">_._ </div><div class="line">_.-``__ <span class="string">''</span>-._ </div><div class="line">_.-`` `. `_. <span class="string">''</span>-._ Redis 3.2.9 (00000000/0) 64 bit</div><div class="line">.-`` .-```. ```\/ _.,_ <span class="string">''</span>-._ </div><div class="line">( <span class="string">' , .-` | `, ) Running in standalone mode</span></div><div class="line">|`-._`-...-` __...-.``-._|'` _.-<span class="string">'| Port: 6379</span></div><div class="line">| `-._ `._ / _.-' | PID: 6508</div><div class="line">`-._ `-._ `-./ _.-<span class="string">' _.-'</span> </div><div class="line">|`-._`-._ `-.__.-<span class="string">' _.-'</span>_.-<span class="string">'| </span></div><div class="line">| `-._`-._ _.-'_.-<span class="string">' | http://redis.io </span></div><div class="line">`-._ `-._`-.__.-'_.-<span class="string">' _.-'</span> </div><div class="line">|`-._`-._ `-.__.-<span class="string">' _.-'</span>_.-<span class="string">'| </span></div><div class="line">| `-._`-._ _.-'_.-<span class="string">' | </span></div><div class="line">`-._ `-._`-.__.-'_.-<span class="string">' _.-'</span> </div><div class="line">`-._ `-.__.-<span class="string">' _.-'</span> </div><div class="line">`-._ _.-<span class="string">' </span></div><div class="line">`-.__.-'</div><div class="line"></div><div class="line">6508:M 01 Jul 18:21:33.664 <span class="comment"># Server started, Redis version 3.2.9</span></div><div class="line">6508:M 01 Jul 18:21:33.664 * DB loaded from disk: 0.000 seconds</div><div class="line">6508:M 01 Jul 18:21:33.664 * The server is now ready to accept connections on port 6379</div></pre></td></tr></table></figure></p>
-<p>###3.测试连通性<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">~ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/bin</div><div class="line">~ ./redis-cli</div><div class="line">127.0.0.1:6379&gt; <span class="built_in">set</span> me houxiurong</div><div class="line">OK</div><div class="line">127.0.0.1:6379&gt; get me</div><div class="line"><span class="string">"houxiurong"</span></div></pre></td></tr></table></figure></p>
-<p>###4.设置开机自动启动redis server<br>新建plist文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~ sudo vi /Library/LaunchDaemons/io.redis.redis-server.plist</div></pre></td></tr></table></figure></p>
+<h3 id="3-测试连通性"><a href="#3-测试连通性" class="headerlink" title="3.测试连通性"></a>3.测试连通性</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">~ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/bin</div><div class="line">~ ./redis-cli</div><div class="line">127.0.0.1:6379&gt; <span class="built_in">set</span> me houxiurong</div><div class="line">OK</div><div class="line">127.0.0.1:6379&gt; get me</div><div class="line"><span class="string">"houxiurong"</span></div></pre></td></tr></table></figure>
+<h3 id="4-设置开机自动启动redis-server"><a href="#4-设置开机自动启动redis-server" class="headerlink" title="4.设置开机自动启动redis server"></a>4.设置开机自动启动redis server</h3><p>新建plist文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~ sudo vi /Library/LaunchDaemons/io.redis.redis-server.plist</div></pre></td></tr></table></figure></p>
 <p>文件内容如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</div><div class="line">&lt;!DOCTYPE plist PUBLIC <span class="string">"-//Apple Computer//DTD PLIST 1.0//EN"</span> <span class="string">"http://www.apple.com/DTDs/PropertyList-1.0.dtd"</span>&gt;</div><div class="line">&lt;plist version=<span class="string">"1.0"</span>&gt;</div><div class="line">&lt;dict&gt;</div><div class="line">&lt;key&gt;Label&lt;/key&gt;</div><div class="line">&lt;string&gt;io.redis.redis-server&lt;/string&gt;</div><div class="line">&lt;key&gt;ProgramArguments&lt;/key&gt;</div><div class="line">&lt;array&gt;</div><div class="line">&lt;string&gt;/usr/<span class="built_in">local</span>/bin/redis-server&lt;/string&gt;</div><div class="line">&lt;string&gt;/usr/<span class="built_in">local</span>/etc/redis.conf&lt;/string&gt;</div><div class="line">&lt;/array&gt;</div><div class="line">&lt;key&gt;RunAtLoad&lt;/key&gt;</div><div class="line">&lt;<span class="literal">true</span>/&gt;</div><div class="line">&lt;/dict&gt;</div><div class="line">&lt;/plist&gt;</div></pre></td></tr></table></figure></p>
-<p>###5.使用launchctl设置开机自动启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~ sudo launchctl load /Library/LaunchDaemons/io.redis.redis-server.plist</div></pre></td></tr></table></figure></p>
+<h3 id="5-使用launchctl设置开机自动启动"><a href="#5-使用launchctl设置开机自动启动" class="headerlink" title="5.使用launchctl设置开机自动启动"></a>5.使用launchctl设置开机自动启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~ sudo launchctl load /Library/LaunchDaemons/io.redis.redis-server.plist</div></pre></td></tr></table></figure>
 <p>使用launchctl启动redis server<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~ sudo launchctl start io.redis.redis-server</div></pre></td></tr></table></figure></p>
 <p>使用launchctl停止redis server<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~ sudo launchctl stop io.redis.redis-server</div></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://xrhou.github.io/2017/08/19/mac-os-x-install-redis-3-2-9/" data-id="cj6jd1a5l000bpq60mb4ql58y" class="article-share-link">Share</a>
+      <a data-url="http://xrhou.github.io/2017/08/19/mac-os-x-install-redis-3-2-9/" data-id="cj6jdy975000atn606cbwfxy8" class="article-share-link">Partager</a>
       
-        <a href="http://xrhou.github.io/2017/08/19/mac-os-x-install-redis-3-2-9/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://xrhou.github.io/2017/08/19/mac-os-x-install-redis-3-2-9/#disqus_thread" class="article-comment-link">Commentaires</a>
       
       
     </footer>
@@ -118,6 +118,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2017/08/19/拼接json格式post/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          拼接json格式post
+        
+      </div>
+    </a>
   
   
     <a href="/2017/08/10/dubbo参数调优说明/" id="article-nav-older" class="article-nav-link-wrap">
@@ -145,7 +154,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/golang/">golang</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ibatis/">ibatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/">springboot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心路历程/">心路历程</a></li></ul>
     </div>
@@ -155,7 +164,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
       <a href="/tags/golang/" style="font-size: 10px;">golang</a> <a href="/tags/ibatis/" style="font-size: 10px;">ibatis</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/springboot/" style="font-size: 10px;">springboot</a> <a href="/tags/心路历程/" style="font-size: 20px;">心路历程</a>
     </div>
@@ -174,9 +183,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/08/19/拼接json格式post/">拼接json格式post</a>
+          </li>
         
           <li>
             <a href="/2017/08/19/mac-os-x-install-redis-3-2-9/">mac os x install redis-3.2.9</a>
@@ -192,10 +205,6 @@
         
           <li>
             <a href="/2017/07/19/Centos7-安装golang/">Centos7 安装golang</a>
-          </li>
-        
-          <li>
-            <a href="/2017/07/19/长大后/">长大后...</a>
           </li>
         
       </ul>
