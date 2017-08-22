@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xrhou.github.io/"/>
-  <updated>2017-08-19T14:21:29.000Z</updated>
+  <updated>2017-08-22T05:58:11.000Z</updated>
   <id>http://xrhou.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://xrhou.github.io/2017/08/19/%E6%8B%BC%E6%8E%A5json%E6%A0%BC%E5%BC%8Fpost/"/>
     <id>http://xrhou.github.io/2017/08/19/拼接json格式post/</id>
     <published>2017-08-19T13:54:39.000Z</published>
-    <updated>2017-08-19T14:21:29.000Z</updated>
+    <updated>2017-08-22T05:58:11.000Z</updated>
     
     <content type="html"><![CDATA[<p>将json格式的字符拼接成需要的url post请求<br><a id="more"></a></p>
 <h3 id="1-json格式的字符"><a href="#1-json格式的字符" class="headerlink" title="1.json格式的字符"></a>1.json格式的字符</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"notifyStr"</span>: &#123;</div><div class="line">    <span class="string">"charset"</span>: <span class="string">"utf-8"</span>,</div><div class="line">    <span class="string">"biz_content"</span>: <span class="string">"&#123;\"mer_id\":\"02360\",\"bank_disc_amt\":0,\"mer_disc_amt\":0,\"pay_time\":\"20170901\",\"attach\":\"\",\"cust_id\":\"GC75JOxg3UFjG\",\"order_id\":\"0209010780760\",\"out_trade_no\":\"P1708181ec800000001\",\"total_amt\":1,\"coupon_amt\":0,\"payment_amt\":1,\"card_no\":\"622202*********9149\",\"return_msg\":\"success\",\"ecoupon_amt\":0,\"total_disc_amt\":0,\"msg_id\":\"020099210780760\",\"point_amt\":0,\"return_code\":\"0\"&#125;"</span>,</div><div class="line">    <span class="string">"format"</span>: <span class="string">"json"</span>,</div><div class="line">    <span class="string">"sign"</span>: <span class="string">"JdjqDJD71rur7a48e/conMlG0lY6sryvTmLDe9tA0EyxjpcspnvBhsafUTtTkdQ6fZ1Qqj2K+75ELFfCVmhdydeTLpXX27KmTNBRtO5euLLZEJjFx7XWT6UWK3kHlTcFbkAl+smNRfsfplg="</span>,</div><div class="line">    <span class="string">"from"</span>: <span class="string">"hou-api"</span>,</div><div class="line">    <span class="string">"api"</span>: <span class="string">"/ui/thirdparty/order/V1/pay"</span>,</div><div class="line">    <span class="string">"app_id"</span>: <span class="string">"100000036501"</span>,</div><div class="line">    <span class="string">"sign_type"</span>: <span class="string">"RSA"</span>,</div><div class="line">    <span class="string">"timestamp"</span>: <span class="string">"2017-08-18 18:48:14"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"serial"</span>: <span class="string">"P170ec800000001"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -36,6 +36,8 @@
     </summary>
     
     
+      <category term="java" scheme="http://xrhou.github.io/tags/java/"/>
+    
   </entry>
   
   <entry>
@@ -43,7 +45,7 @@
     <link href="http://xrhou.github.io/2017/08/19/mac-os-x-install-redis-3-2-9/"/>
     <id>http://xrhou.github.io/2017/08/19/mac-os-x-install-redis-3-2-9/</id>
     <published>2017-08-19T13:40:26.000Z</published>
-    <updated>2017-08-19T13:50:19.000Z</updated>
+    <updated>2017-08-22T05:58:02.000Z</updated>
     
     <content type="html"><![CDATA[<a id="more"></a>
 <h3 id="1-下载、解压、重命名并且编译安装Redis"><a href="#1-下载、解压、重命名并且编译安装Redis" class="headerlink" title="1.下载、解压、重命名并且编译安装Redis"></a>1.下载、解压、重命名并且编译安装Redis</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">~ wget http://download.redis.io/releases/redis-3.2.9.tar.gz </div><div class="line">~ tar xzf redis-3.2.9.tar.gz</div><div class="line">~ mv redis-3.2.9 redis</div><div class="line">~ <span class="built_in">cd</span> redis</div><div class="line">~ make</div><div class="line">~ make <span class="built_in">test</span></div><div class="line">~ make install</div></pre></td></tr></table></figure>
@@ -66,6 +68,8 @@
     </summary>
     
     
+      <category term="心路历程" scheme="http://xrhou.github.io/tags/%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/"/>
+    
   </entry>
   
   <entry>
@@ -73,7 +77,7 @@
     <link href="http://xrhou.github.io/2017/08/10/dubbo%E5%8F%82%E6%95%B0%E8%B0%83%E4%BC%98%E8%AF%B4%E6%98%8E/"/>
     <id>http://xrhou.github.io/2017/08/10/dubbo参数调优说明/</id>
     <published>2017-08-10T09:59:09.000Z</published>
-    <updated>2017-08-22T05:55:00.000Z</updated>
+    <updated>2017-08-22T05:58:07.000Z</updated>
     
     <content type="html"><![CDATA[<p>dubbo作为一个服务治理框架，功能相对比较完善，性能也挺不错。但很多朋友在使用dubbo的时候，只是简单的参考官方说明进行搭建，并没有过多的去思考一些关键参数的意义（也可能是时间紧任务多，没空出来研究），最终做出来的效果有一定的打折。 这里我根据目前我们项目的使用情况列出几个性能调优的参数及其意义，供大家参考。<br>在介绍参数之前，我们先了解下dubbo中配置的优先级，以免出现调优参数设置了却没发现效果实际是配置被覆盖导致这样的问题。</p>
 <h5 id="dubbo分为consumer和provider端，在配置各个参数时，其优先级如下："><a href="#dubbo分为consumer和provider端，在配置各个参数时，其优先级如下：" class="headerlink" title="dubbo分为consumer和provider端，在配置各个参数时，其优先级如下："></a>dubbo分为consumer和provider端，在配置各个参数时，其优先级如下：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">1、consumer的method配置     </div><div class="line">2、provider的method配置     </div><div class="line">3、consumer的reference配置    </div><div class="line">4、provider的service配置    </div><div class="line">5、consumer的consumer节点配置   </div><div class="line">6、provider的provider节点配置</div></pre></td></tr></table></figure>
@@ -99,6 +103,8 @@
     </summary>
     
     
+      <category term="java" scheme="http://xrhou.github.io/tags/java/"/>
+    
   </entry>
   
   <entry>
@@ -106,7 +112,7 @@
     <link href="http://xrhou.github.io/2017/07/23/%E4%BA%92%E8%81%94%E7%BD%91%E5%88%9B%E4%B8%9A%E5%85%AC%E5%8F%B8%E9%BB%91%E8%AF%9D%E6%8C%87%E5%8D%97/"/>
     <id>http://xrhou.github.io/2017/07/23/互联网创业公司黑话指南/</id>
     <published>2017-07-23T14:45:48.000Z</published>
-    <updated>2017-07-23T15:23:14.000Z</updated>
+    <updated>2017-08-22T05:58:15.000Z</updated>
     
     <content type="html"><![CDATA[<p>整理了一下互联网创业公司常用的黑话，供大家参考，可以避免理解上的偏差。你肯定听过其中几款，却未必了解当时说话人的怨念……在阅读过程中，请保持严肃，不要哄堂大笑。<br><a id="more"></a><br><img src="http://ot4jt9w1k.bkt.clouddn.com/11.png" alt="一脸懵逼"></p>
 <h3 id="老板黑话"><a href="#老板黑话" class="headerlink" title="老板黑话"></a><font color="#FF8247" size="3" face="黑体">老板黑话</font></h3><p>你来我办公室一下 = 老子又想到了绝妙的idea<br>我们要专注用户体验 = 把界面画的好看点<br>产品不够大气 = 我也不知道哪不好反正就是不好</p>
@@ -151,7 +157,7 @@
     <link href="http://xrhou.github.io/2017/07/19/Centos7-%E5%AE%89%E8%A3%85golang/"/>
     <id>http://xrhou.github.io/2017/07/19/Centos7-安装golang/</id>
     <published>2017-07-19T06:02:55.000Z</published>
-    <updated>2017-07-23T14:41:11.000Z</updated>
+    <updated>2017-08-22T05:58:08.000Z</updated>
     
     <content type="html"><![CDATA[<p><a href="https://xrhou.github.io">Centos7的go语言安装</a><br><a id="more"></a><br>使用二进制文件安装</p>
 <h3 id="1、下载二进制文件："><a href="#1、下载二进制文件：" class="headerlink" title="1、下载二进制文件："></a>1、下载二进制文件：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ wget http://www.golangtc.com/static/go/1.6.2/go1.6.2.linux-amd64.tar.gz</div></pre></td></tr></table></figure>
@@ -180,7 +186,7 @@
     <link href="http://xrhou.github.io/2017/07/19/%E9%95%BF%E5%A4%A7%E5%90%8E/"/>
     <id>http://xrhou.github.io/2017/07/19/长大后/</id>
     <published>2017-07-19T01:13:14.000Z</published>
-    <updated>2017-07-23T14:43:02.000Z</updated>
+    <updated>2017-08-22T05:58:10.000Z</updated>
     
     <content type="html"><![CDATA[<p> 爸爸当上领导后，从来不敢多说话，生怕给别人带来压力。<br><a id="more"></a><br>   上个月，爸爸的下属小李叔叔到我家来玩，爸爸随口说了句：“家里没空调，比较热，见笑了。”<br>   第二天，小李叔叔带师傅给我家安装了5匹的大空调！怎么也不肯收钱。<br>上个星期，爸爸看到老张伯伯在办公室吃午饭，其中有煎的鱼，随口说了句：“哎呦，真香！”！<br>当天晚上。老张伯伯给我家送了一箱鲜鱼来。<br>   有天晚上在路上，碰到单位的小王叔叔和他老婆逛街，爸爸随口称赞道：“哎呦，小王，你媳妇真漂亮！”<br>第二天晚上，妈妈不在家，突然听到有人敲门，打开门一看，小王叔叔的媳妇站在门口，见到爸爸就满脸的微笑说：“领导，我们家小王说嫂子不在家，让我来陪陪你！”<br>  当领导真好，我长大以后也要像爸爸一样当领导。<br>当领导真好，怪不得那么多人喜欢当领导！ 儿子对他当局长的爸爸说：“我很喜欢楼下周副局长家的女儿！”<br>局长偷偷说：“不行，那是你同父异母的妹妹！”<br>儿子又说：“那我也喜欢隔壁王科长家的女儿！”<br>局长又说：“那也不行，亦是你同父异母的妹妹，千万别对你妈说。”<br>儿子只好偷偷跟妈妈说了。<br>妈妈安慰儿子：“你喜欢谁就娶谁，别理他，市委黄书记才是你亲爹！</p>
 <p>天黑路滑，社会太复杂。  </p>
@@ -202,7 +208,7 @@
     <link href="http://xrhou.github.io/2017/07/17/Spring-Boot%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3/"/>
     <id>http://xrhou.github.io/2017/07/17/Spring-Boot中文乱码解决/</id>
     <published>2017-07-17T08:14:56.000Z</published>
-    <updated>2017-07-23T14:41:00.000Z</updated>
+    <updated>2017-08-22T05:58:05.000Z</updated>
     
     <content type="html"><![CDATA[<p>使用SpringBoot开发，对外开放接口供调用，传入参数中有中文，出现中文乱码，废话少说，直接上代码。<br><a id="more"></a><br>解决乱码方法如下：</p>
 <h4 id="第一步-约定传参编码格式"><a href="#第一步-约定传参编码格式" class="headerlink" title="第一步,约定传参编码格式"></a>第一步,约定传参编码格式</h4><p>不管是使用httpclient，还是okhttp，都要设置传参的编码，为了统一，这里全部设置为utf-8</p>
@@ -256,9 +262,9 @@
     </summary>
     
     
-      <category term="ibatis" scheme="http://xrhou.github.io/tags/ibatis/"/>
-    
       <category term="java" scheme="http://xrhou.github.io/tags/java/"/>
+    
+      <category term="ibatis" scheme="http://xrhou.github.io/tags/ibatis/"/>
     
   </entry>
   
@@ -267,7 +273,7 @@
     <link href="http://xrhou.github.io/2017/07/16/%E6%88%91%E7%9A%84hexo-blog/"/>
     <id>http://xrhou.github.io/2017/07/16/我的hexo-blog/</id>
     <published>2017-07-16T07:35:12.000Z</published>
-    <updated>2017-07-16T14:10:27.000Z</updated>
+    <updated>2017-08-22T05:58:13.000Z</updated>
     
     <content type="html"><![CDATA[<p>周末，两天没出门，除了下楼拿外卖，昨天研究了下layui前段框架。看到很多个人的blog在hexo的驱动下部署的个人blog,心血来潮，自己也弄了一个。</p>
 ]]></content>
@@ -279,6 +285,8 @@
     
     </summary>
     
+    
+      <category term="心路历程" scheme="http://xrhou.github.io/tags/%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/"/>
     
   </entry>
   
