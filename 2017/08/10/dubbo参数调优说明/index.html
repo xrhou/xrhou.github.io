@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://xrhou.github.io/2017/08/10/dubbo参数调优说明/index.html">
 <meta property="og:site_name" content="土豆丝不加辣">
 <meta property="og:description" content="dubbo作为一个服务治理框架，功能相对比较完善，性能也挺不错。但很多朋友在使用dubbo的时候，只是简单的参考官方说明进行搭建，并没有过多的去思考一些关键参数的意义（也可能是时间紧任务多，没空出来研究），最终做出来的效果有一定的打折。 这里我根据目前我们项目的使用情况列出几个性能调优的参数及其意义，供大家参考。在介绍参数之前，我们先了解下dubbo中配置的优先级，以免出现调优参数设置了却没发现效">
-<meta property="og:updated_time" content="2017-08-22T05:54:02.000Z">
+<meta property="og:updated_time" content="2017-08-22T05:55:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="dubbo参数调优说明">
 <meta name="twitter:description" content="dubbo作为一个服务治理框架，功能相对比较完善，性能也挺不错。但很多朋友在使用dubbo的时候，只是简单的参考官方说明进行搭建，并没有过多的去思考一些关键参数的意义（也可能是时间紧任务多，没空出来研究），最终做出来的效果有一定的打折。 这里我根据目前我们项目的使用情况列出几个性能调优的参数及其意义，供大家参考。在介绍参数之前，我们先了解下dubbo中配置的优先级，以免出现调优参数设置了却没发现效">
@@ -94,9 +94,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>dubbo作为一个服务治理框架，功能相对比较完善，性能也挺不错。但很多朋友在使用dubbo的时候，只是简单的参考官方说明进行搭建，并没有过多的去思考一些关键参数的意义（也可能是时间紧任务多，没空出来研究），最终做出来的效果有一定的打折。 这里我根据目前我们项目的使用情况列出几个性能调优的参数及其意义，供大家参考。<br>在介绍参数之前，我们先了解下dubbo中配置的优先级，以免出现调优参数设置了却没发现效果实际是配置被覆盖导致这样的问题。</p>
-<h5 id="dubbo分为consumer和provider端，在配置各个参数时，其优先级如下："><a href="#dubbo分为consumer和provider端，在配置各个参数时，其优先级如下：" class="headerlink" title="dubbo分为consumer和provider端，在配置各个参数时，其优先级如下："></a>dubbo分为consumer和provider端，在配置各个参数时，其优先级如下：</h5><blockquote>
-<p>1、consumer的method配置<br>2、provider的method配置<br>3、consumer的reference配置<br>4、provider的service配置<br>5、consumer的consumer节点配置<br>6、provider的provider节点配置   </p>
-</blockquote>
+<h5 id="dubbo分为consumer和provider端，在配置各个参数时，其优先级如下："><a href="#dubbo分为consumer和provider端，在配置各个参数时，其优先级如下：" class="headerlink" title="dubbo分为consumer和provider端，在配置各个参数时，其优先级如下："></a>dubbo分为consumer和provider端，在配置各个参数时，其优先级如下：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">1、consumer的method配置     </div><div class="line">2、provider的method配置     </div><div class="line">3、consumer的reference配置    </div><div class="line">4、provider的service配置    </div><div class="line">5、consumer的consumer节点配置   </div><div class="line">6、provider的provider节点配置</div></pre></td></tr></table></figure>
 <p>可以看到，方法级的配置优先级高于接口级，consumer的优先级高于provider。同时，在本地参数配置还存在一层优先级：<br>1、系统参数(-D)，如-Ddubbo.protocol.port=20881<br>2、xml配置<br>3、property文件<br>了解了这两个优先级，调优起来才会更加清晰，省去了一些诸如配置设置了不生效这样的麻烦。注意，其实dubbo中还可以通过将配置写入注册中心的方式覆盖用户配置（优先级高于系统参数），这里不展开，有兴趣的同学可以去看官方文档。接下来我们看看dubbo的几个比较重要的调优参数，及其影响的方式和大概实现。</p>
 <p>参数名    作用范围    默认值    说明    备注<br>actives    consumer    0    每服务消费者每服务每方法最大并发调用数    0表示不限制<br>connections    consumer         对每个提供者的最大连接数，rmi、http、hessian等短连接协议表示限制连接数，dubbo等长连接协表示建立的长连接个数    dubbo时为1，及复用单链接<br>accepts    provider    0    服务提供方最大可接受连接数    0表示不限制<br>iothreads    provider    cpu个数+1    io线程池大小(固定大小)<br>threads    provider    200    业务线程池大小(固定大小)<br>executes    provider    0    服务提供者每服务每方法最大可并行执行请求数    0表示不限制<br>tps    provider         指定时间内（默认60s）最大的可执行次数，注意与executes的区别    默认不开启</p>
 <pre><code>注意表中参数与图中的对应关系：
@@ -114,7 +112,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://xrhou.github.io/2017/08/10/dubbo参数调优说明/" data-id="cj6n6dnt00005qu60rixhueat" class="article-share-link">Share</a>
+      <a data-url="http://xrhou.github.io/2017/08/10/dubbo参数调优说明/" data-id="cj6n6f1l10005ry60w1x3p9rz" class="article-share-link">Share</a>
       
         <a href="http://xrhou.github.io/2017/08/10/dubbo参数调优说明/#disqus_thread" class="article-comment-link">Comments</a>
       
