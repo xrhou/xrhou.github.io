@@ -312,9 +312,9 @@
     </summary>
     
     
-      <category term="ibatis" scheme="http://xrhou.github.io/tags/ibatis/"/>
-    
       <category term="java" scheme="http://xrhou.github.io/tags/java/"/>
+    
+      <category term="ibatis" scheme="http://xrhou.github.io/tags/ibatis/"/>
     
   </entry>
   
@@ -345,7 +345,7 @@
     <link href="http://xrhou.github.io/2017/07/16/hello-world/"/>
     <id>http://xrhou.github.io/2017/07/16/hello-world/</id>
     <published>2017-07-16T06:00:17.000Z</published>
-    <updated>2017-07-17T07:32:30.000Z</updated>
+    <updated>2017-08-22T07:34:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <a id="more"></a>
@@ -365,6 +365,8 @@
     
     </summary>
     
+    
+      <category term="心路历程" scheme="http://xrhou.github.io/tags/%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/"/>
     
   </entry>
   
