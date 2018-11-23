@@ -312,9 +312,9 @@
     </summary>
     
     
-      <category term="java" scheme="http://xrhou.github.io/tags/java/"/>
-    
       <category term="ibatis" scheme="http://xrhou.github.io/tags/ibatis/"/>
+    
+      <category term="java" scheme="http://xrhou.github.io/tags/java/"/>
     
   </entry>
   
